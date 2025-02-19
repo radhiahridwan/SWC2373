@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Webex Connection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>🔗 Test Webex Connection</h2>
+
+        <!-- Test Connection Form -->
+        <form method="POST">
+            <input type="hidden" name="access_token" value="{{ access_token }}">
+            <button type="submit">Test Connection</button>
+        </form>
+
+        <!-- Show Connection Result -->
+        {% if message %}
+        <div class="alert">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Back to Menu Button -->
+        <a href="{{ url_for('menu', access_token=access_token) }}">
+            <button>🔙 Back to Menu</button>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>⏹ Menu</h2>
+        <p>Select an option below:</p>
+
+        <a href="{{ url_for('user_info', access_token=access_token) }}">
+            <button>👤 Show User Info</button>
+        </a>
+
+        <a href="{{ url_for('test_connection', access_token=access_token) }}">
+            <button>🔗 Test Connection</button>
+        </a>
+
+        <a href="{{ url_for('index') }}">
+            <button class="back-button">🔙 Back to Home</button>
+        </a>
+    </div>
+</body>
+</html>

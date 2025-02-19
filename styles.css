@@ -1,0 +1,179 @@
+/* General Styling */
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 50px rgba(147, 196, 245, 0.558);
+    text-align: center;
+    width: 90%;
+    max-width: 900px;
+    overflow: hidden; /* Prevents overflow issues */
+}
+
+/* Title Styling */
+h2 {
+    color: rgb(255, 255, 255);
+    margin-bottom: 15px;
+}
+
+/* Room Grid (Fixing Overflow) */
+.rooms-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers room boxes */
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+}
+
+/* Room Card */
+.room-card {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(130, 202, 255, 0.5);
+    text-align: left;
+    width: 100%;
+    max-width: 400px; /* Prevents room boxes from getting too wide */
+}
+
+/* change text color */
+.room-card p strong {
+    color: #00c8ff;
+}
+
+/* Room Title */
+.room-title {
+    color: rgb(67, 133, 255); /* Ensures room names are white */
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Room Links */
+.room-link {
+    color: rgb(140, 216, 249); /* Makes links white */
+    text-decoration: none;
+    display: block; /* Ensures entire box is clickable */
+}
+
+.room-link:hover {
+    text-decoration: underline;
+}
+
+/* Fix for Room ID Overflow */
+.room-id {
+    display: inline-block; /* Keeps it inside the box */
+    max-width: 100%; /* Prevents it from stretching beyond */
+    word-wrap: break-word; /* Breaks long words if needed */
+    overflow-wrap: break-word; /* Ensures text wraps properly */
+    white-space: normal; /* Allows text to wrap */
+}
+
+/* Back Button */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* ADD ROOM FORM (NEW STYLES) */
+.add-room-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+    text-align: left;
+}
+
+.add-room-container h3 {
+    color: #00c8ff;
+    margin-bottom: 10px;
+}
+
+.add-room-container input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.add-room-container button {
+    background-color: #00c8ff;
+    color: #1a1a1a;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-room-container button:hover {
+    background-color: #0095cc;
+}
+
+/* Connection status messages */
+.connection-status {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Back button */
+.back-button {
+    display: block;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}

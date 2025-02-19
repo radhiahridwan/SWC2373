@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webex Rooms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>📌 Webex Rooms</h2>
+
+        <!-- Flash messages for errors -->
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Rooms Display -->
+        {% if rooms %}
+            <div class="rooms-grid">
+                {% for room in rooms %}
+                    <a href="https://web.webex.com/spaces/{{ room.id }}" target="_blank" class="room-link">
+                        <div class="room-card">
+                            <div class="room-icon">🟢</div>
+                            <div class="room-info">
+                                <h3 class="room-title">{{ room.title }}</h3>
+                                <p><strong>Room ID:</strong> <span class="room-id" title="{{ room.id }}">{{ room.id }}</span></p>
+                                <p><strong>Date Created: </strong>
+                                    {% if room.created %}
+                                    {{ room.created | replace('T', ' ') | replace('Z', '') }}
+                                {% else %}
+                                    Unknown
+                                {% endif %}
+                                </p>
+                                <p><strong>Last Active:</strong> 
+                                    {% if room.lastActivity %}
+                                        {{ room.lastActivity | replace('T', ' ') | replace('Z', '') }}
+                                    {% else %}
+                                        No activity yet
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-danger">❌ No rooms found.</p>
+        {% endif %}
+
+        <!-- ADD ROOM FORM (MOVED TO BOTTOM) -->
+        <div class="add-room-container">
+            <h3>➕ Create a New Room</h3>
+            <form method="POST">
+                <input type="hidden" name="access_token" value="{{ access_token }}">
+                <input type="text" name="room_name" placeholder="Enter Room Name" required>
+                <button type="submit">Create Room</button>
+            </form>
+        </div>
+
+        <!-- Back Button -->
+        <a href="{{ url_for('index') }}">
+            <button type="button">🔙 Back to Home</button>
+        </a>
+    </div>
+</body>
+</html>
